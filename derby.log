@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Oct 10 23:56:57 IST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-015f-078a-2f0f-00000619aeb8 
+on database directory memory:/Users/imran/eclipse-workspace/zautomate/testdb with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
+Loaded from file:/Users/imran/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.13.1.1/29c42babe5c5463c6eea45487d3cfbfe8348ccd1/derby-10.13.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_131-b11
+user.dir=/Users/imran/eclipse-workspace/zautomate
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.12.6
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

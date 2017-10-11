@@ -49,6 +49,9 @@ dependencies {
     compile('org.postgresql:postgresql:9.4-1206-jdbc42')
     compile('com.zaxxer:HikariCP:2.7.2')
     
+    // Apache commons lang
+    compile('org.apache.commons:commons-lang3:3.6')
+    
     compile('org.apache.derby:derby')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')

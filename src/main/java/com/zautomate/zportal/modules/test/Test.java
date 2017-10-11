@@ -8,6 +8,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
+
 @Component
 @Path("/test")
 public class Test {

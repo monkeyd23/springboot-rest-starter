@@ -1,5 +1,8 @@
 package com.zautomate.zportal.commons.exceptions;
 
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value = "error")
@@ -13,11 +16,21 @@ public class Error {
     // Default Constructor
     public Error() {}
     
-    // Properties Constructor
-    public Error(int statusCode, String statusDescription, String errorMessage) {
-        this.statusCode = statusCode;
-        this.statusDescription = statusDescription;
-        this.errorMessage = errorMessage;
+    // Constructor with Throwable
+    public Error(Throwable exception) {
+    		
+    		Response.StatusType type;
+    		
+    		// Use ternary operator to get status type
+    		if(exception instanceof WebApplicationException)
+    			type = ((WebApplicationException) exception).getResponse().getStatusInfo();
+    		else
+    			type = Response.Status.INTERNAL_SERVER_ERROR;
+    		
+    		// Populate properties
+    		this.statusCode = type.getStatusCode();
+    		this.statusDescription = type.getReasonPhrase();
+    		this.errorMessage = exception.getLocalizedMessage();
     }
     
     // Getters and Setters

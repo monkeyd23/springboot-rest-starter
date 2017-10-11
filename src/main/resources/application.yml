@@ -4,21 +4,28 @@ server:
 
 # Spring properties
 spring:
-  
   # Datasource properties
   datasource:
     url: jdbc:postgresql://localhost:5432/zportal
     username: zportaldbuser
     password: zportal
     driver-class-name: org.postgresql.Driver
-    
     # Hikkari Connection Pool properties
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 5
-        
-    
-    
-    
-    
+
+# Logging properties
+logging:
+  # Logging file
+  file: /var/log/zautomate/zportal.log
+  # Logging Levels
+  level:
+    org.springframework.web: ERROR
+    com.zautomate.zportal.modules: DEBUG
+  # Logging Patterns
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n)"
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n)"
+
     

@@ -7,7 +7,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
 import com.zautomate.zportal.commons.exceptions.GenericExceptionMapper;
-import com.zautomate.zportal.commons.exceptions.GenericRequestLogger;
 import com.zautomate.zportal.modules.test.Test;
 
 @Configuration
@@ -29,7 +28,10 @@ public class JerseyConfig extends ResourceConfig {
 	}
 	
 	private void registerCommons() {
-		register(GenericRequestLogger.class);
+		// Register Logging Feature
+		//register(new LoggingFeature(Logger.getLogger(getClass().getName()), Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, Integer.MAX_VALUE));
+		
+		// Register generic exception handler
 		register(GenericExceptionMapper.class);
 	}
 }

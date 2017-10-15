@@ -7,7 +7,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
 import com.zautomate.zportal.commons.exceptions.GenericExceptionMapper;
-import com.zautomate.zportal.modules.test.Test;
 
 @Configuration
 @ApplicationPath("")
@@ -24,7 +23,7 @@ public class JerseyConfig extends ResourceConfig {
 	}
 	
 	private void registerEndpoints() {
-		register(Test.class);
+
 	}
 	
 	private void registerCommons() {

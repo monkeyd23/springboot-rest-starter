@@ -1,6 +1,7 @@
 # Server port
 server:
-  port: 8000
+  port: 8080
+  context-path: /zportal
 
 # Spring properties
 spring:

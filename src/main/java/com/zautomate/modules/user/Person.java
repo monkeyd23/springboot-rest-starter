@@ -1,4 +1,4 @@
-package com.zautomate.zportal.module.user;
+package com.zautomate.modules.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,8 +14,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.zautomate.zportal.commons.enums.Strings;
-import com.zautomate.zportal.module.organization.Organization;
+import com.zautomate.commons.enums.Strings;
+import com.zautomate.modules.organization.Organization;
 
 @Entity
 public class Person implements UserDetails {

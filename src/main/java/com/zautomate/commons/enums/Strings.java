@@ -1,4 +1,4 @@
-package com.zautomate.zportal.commons.enums;
+package com.zautomate.commons.enums;
 
 public enum Strings {
 	

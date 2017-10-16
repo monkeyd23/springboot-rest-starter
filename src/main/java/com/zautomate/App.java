@@ -1,4 +1,4 @@
-package com.zautomate.zportal;
+package com.zautomate;
 
 import javax.sql.DataSource;
 
@@ -9,12 +9,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @SpringBootApplication
 @EnableResourceServer
-public class ZportalApp {
+public class App {
 	
 	@Autowired
 	DataSource dataSource;
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ZportalApp.class, args);
+		SpringApplication.run(App.class, args);
 	}
 }

@@ -1,4 +1,4 @@
-package com.zautomate.zportal.configs;
+package com.zautomate.configs;
 
 import javax.sql.DataSource;
 
@@ -14,6 +14,8 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
@@ -28,6 +30,8 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	
 	@Autowired
     DataSource dataSource;
+	
+	 private TokenStore tokenStore = new JdbcTokenStore(dataSource);
 
 	// password encryptor
 	@Bean
@@ -39,12 +43,11 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	public void configure(AuthorizationServerEndpointsConfigurer configurer) throws Exception {
 		configurer.authenticationManager(authenticationManager);
 		configurer.userDetailsService(personService);
+		configurer.tokenStore(tokenStore);
 	}
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory().withClient("gigy").secret("secret").accessTokenValiditySeconds(3600)
-		.scopes("read", "write").authorizedGrantTypes("password", "refresh_token").resourceIds("resource");
-		//clients.jdbc(dataSource);
+		clients.jdbc(dataSource);
 	}
 }

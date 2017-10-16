@@ -1,4 +1,4 @@
-package com.zautomate.zportal.configs;
+package com.zautomate.configs;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.ApplicationPath;
@@ -6,7 +6,8 @@ import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
-import com.zautomate.zportal.commons.exceptions.GenericExceptionMapper;
+import com.zautomate.commons.exceptions.GenericExceptionMapper;
+import com.zautomate.modules.user.PersonResource;
 
 @Configuration
 @ApplicationPath("")
@@ -23,7 +24,7 @@ public class JerseyConfig extends ResourceConfig {
 	}
 	
 	private void registerEndpoints() {
-
+		register(PersonResource.class);
 	}
 	
 	private void registerCommons() {

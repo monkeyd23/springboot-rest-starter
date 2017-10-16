@@ -1,4 +1,4 @@
-package com.zautomate.zportal.module.organization;
+package com.zautomate.modules.organization;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

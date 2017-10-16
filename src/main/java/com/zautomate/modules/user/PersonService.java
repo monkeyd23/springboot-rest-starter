@@ -1,4 +1,6 @@
-package com.zautomate.zportal.module.user;
+package com.zautomate.modules.user;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +23,15 @@ public class PersonService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return personDao.findOneByEmail(username);
+	}
+
+	/*
+	 * Method used to get all users of the system
+	 * @param
+	 * @return List of Person objects.
+	 */
+	public List<Person> getAllUsers() {
+		return personDao.findAll();
 	}
 
 }

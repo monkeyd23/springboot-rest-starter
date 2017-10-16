@@ -1,4 +1,4 @@
-package com.zautomate.zportal.module.user;
+package com.zautomate.modules.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

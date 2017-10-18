@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 import com.zautomate.commons.exceptions.GenericExceptionMapper;
+import com.zautomate.commons.server.ActuatorResource;
 import com.zautomate.modules.user.PersonResource;
 
 @Configuration
@@ -25,13 +26,16 @@ public class JerseyConfig extends ResourceConfig {
 		registerCommons();
 	}
 	
-	private void registerEndpoints() {
+	private void registerEndpoints() {		
 		register(PersonResource.class);
 	}
 	
 	private void registerCommons() {
 		// Register Logging Feature
 		//register(new LoggingFeature(Logger.getLogger(getClass().getName()), Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, Integer.MAX_VALUE));
+		
+		// Register Actuator Endpoints
+		register(ActuatorResource.class);
 		
 		// Register generic exception handler
 		register(GenericExceptionMapper.class);

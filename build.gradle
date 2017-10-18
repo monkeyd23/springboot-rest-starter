@@ -11,6 +11,10 @@
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
+    configurations {
+        compile.exclude group: 'org.apache.tomcat', module: 'tomcat-jdbc'
+        compile.exclude group: 'org.springframework.boot', module: "spring-boot-starter-tomcat" 
+    }
 }
 
 apply plugin: 'java'
@@ -41,13 +45,17 @@ dependencies {
 	// Spring boot base
     compile('org.springframework.boot:spring-boot-starter')
     
+    // Undertow application server
+    compile("org.springframework.boot:spring-boot-starter-undertow")
+    
+    // Actuator for server metrics
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    
     // Jersey for web services
     compile('org.springframework.boot:spring-boot-starter-jersey')
     
     // Hibernate, Postgres and Hikkari econection pool
-    compile('org.springframework.boot:spring-boot-starter-data-jpa') {
-    		exclude group: 'org.apache.tomcat', module: 'tomcat-jdbc' 
-    }
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.postgresql:postgresql:9.4-1206-jdbc42')
     compile('com.zaxxer:HikariCP:2.7.2')
     
@@ -57,8 +65,6 @@ dependencies {
     
     // Apache commons lang
     compile('org.apache.commons:commons-lang3:3.6')
-    
-    compile('org.apache.derby:derby')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

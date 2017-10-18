@@ -5,11 +5,16 @@ server:
 
 # Spring properties
 spring:
+  # JPA properties
+  jpa:
+    database: POSTGRESQL
+    datbase-platform: org.hibernate.dialect.PostgreSQLDialect
   # Datasource properties
   datasource:
     url: jdbc:postgresql://localhost:5432/zportal
     username: zportaldbuser
     password: zportal
+    platform: postgres
     driver-class-name: org.postgresql.Driver
     # Hikkari Connection Pool properties
     hikari:

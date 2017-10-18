@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -36,12 +36,12 @@ public class Person implements UserDetails {
 	private String zip;
 	private String status;
 	private Long statusDate;
-	@Lob
 	private String comments;
 	private String activationCode;
 	private String emailnotification;
 	private String forcePswdChange;
 	@ManyToOne
+	@JoinColumn(name = "organization")
 	private Organization organization;
 	private String deviceId;
 	private String thirdPartyName;
@@ -249,7 +249,7 @@ public class Person implements UserDetails {
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// credentials never expire
-		return false;
+		return true;
 	}
 
 	@Override

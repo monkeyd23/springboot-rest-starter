@@ -23,9 +23,6 @@ public class GenericExceptionMapper implements ExceptionMapper<Throwable> {
         Error error = new Error(exception);
         
         // return response built with the error object
-        return Response.status(error.getStatusCode())
-        				   .entity(error)
-        				   .type(MediaType.APPLICATION_JSON)
-        				   .build();
+        return Response.status(error.getStatusCode()).entity(error).type(MediaType.APPLICATION_JSON).build();
     }
 }

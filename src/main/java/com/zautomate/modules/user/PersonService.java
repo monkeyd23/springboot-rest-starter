@@ -22,7 +22,7 @@ public class PersonService implements UserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return personDao.findOneByEmail(username);
+		return personDao.findByEmail(username).get(0);
 	}
 
 	/*

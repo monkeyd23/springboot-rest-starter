@@ -1,13 +1,16 @@
 package com.zautomate.modules.organization;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 
 @Entity
-public class Organization {
+public class Organization implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +28,6 @@ public class Organization {
 	private String parentOrg;
 	private String territory;
 	private boolean allowAutocheckout = true;
-	@Lob
 	private String remarks;
 	
 	// No orgs constructor to be used by spring and data-jpa

@@ -1,5 +1,7 @@
 package com.zautomate.modules.user;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -7,10 +9,10 @@ import org.springframework.stereotype.Repository;
 public interface PersonDao extends JpaRepository<Person, String> {
 	
 	/*
-	 * Find a person by username
+	 * Find list of person by email
 	 * No need to add implementation. Spring JPA will add it based on username
 	 * @param email of the user.
-	 * @return Person object if its exists in the database.
+	 * @return List of Person object if its exists in the database.
 	 */
-	Person findOneByEmail(String email);
+	List<Person> findByEmail(String email);
 }

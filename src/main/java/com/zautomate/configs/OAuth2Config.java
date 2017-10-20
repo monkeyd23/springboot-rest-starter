@@ -20,17 +20,20 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 @EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
-	@Autowired
-	@Qualifier("personService")
-	private UserDetailsService personService;
-
-	@Autowired
 	private AuthenticationManager authenticationManager;
-	
-	@Autowired
-	DataSource dataSource;
+	private DataSource dataSource;
 
-	@Bean
+	@Autowired
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
+
+    @Autowired
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    @Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}

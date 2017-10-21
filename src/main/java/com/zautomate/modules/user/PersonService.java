@@ -10,11 +10,15 @@ import org.springframework.stereotype.Service;
 
 @Service("personService")
 public class PersonService implements UserDetailsService {
-	
+
+	private PersonDao personDao;
+
 	@Autowired
-	PersonDao personDao;
-	
-	/*
+    public PersonService(PersonDao personDao) {
+        this.personDao = personDao;
+    }
+
+    /*
 	 * Method declared in the spring security framework.
 	 * Method used to load a UserDetails object by username
 	 * @param email of the user.
@@ -30,7 +34,7 @@ public class PersonService implements UserDetailsService {
 	 * @param
 	 * @return List of Person objects.
 	 */
-	public List<Person> getAllUsers() {
+	List<Person> getAllUsers() {
 		return personDao.findAll();
 	}
 

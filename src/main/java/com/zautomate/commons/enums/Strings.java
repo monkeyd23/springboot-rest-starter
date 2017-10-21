@@ -8,7 +8,7 @@ public enum Strings {
 	
 	private final String text;
 	
-	private Strings(final String text) {
+	Strings(final String text) {
         this.text = text;
     }
 	

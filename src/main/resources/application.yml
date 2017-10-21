@@ -3,11 +3,24 @@ server:
   port: 8080
   context-path: /zportal
 
+# Database properties
+
 # Spring properties
 spring:
   # JPA properties
   jpa:
     database: POSTGRESQL
+  # Datasource properties
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/zportal
+    username: zportaldbuser
+    password: zportal
+    platform: postgres
+    # Hikari Connection Pool properties
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
 
 # Logging properties
 logging:

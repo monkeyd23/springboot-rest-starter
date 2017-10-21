@@ -15,7 +15,7 @@ import com.zautomate.modules.user.PersonResource;
 @EnableResourceServer
 @ApplicationPath("/api")
 public class JerseyConfig extends ResourceConfig {
-	
+
 	public JerseyConfig() {}
 	
 	@PostConstruct

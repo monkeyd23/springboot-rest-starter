@@ -1,4 +1,4 @@
-package com.zautomate;
+package com.zautomate.zportal;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

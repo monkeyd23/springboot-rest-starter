@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.datasource.init.DatabasePopulator;
 
 import javax.sql.DataSource;
 
@@ -27,6 +28,10 @@ public class DatabaseConfig {
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public HikariDataSource dataSource(DataSourceProperties properties) {
-        return createDataSource(properties, HikariDataSource.class);
+        HikariDataSource dataSource = createDataSource(properties, HikariDataSource.class);
+
+
+
+        return dataSource;
     }
 }

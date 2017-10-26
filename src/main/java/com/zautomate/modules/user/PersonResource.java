@@ -9,7 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/users")
-@SuppressWarnings("WeakerAccess")
 public class PersonResource {
 
 	private PersonService personService;

@@ -55,6 +55,9 @@ dependencies {
     // Lombok for cleaner code
     compileOnly 'org.projectlombok:lombok:1.16.18'
 
+    // Dynamic for easier collection access
+    compile 'com.github.alexheretic:dynamics:4.0'
+
     // test dependencies
     testCompile 'io.rest-assured:rest-assured:3.0.5'
     testCompile 'org.springframework.boot:spring-boot-starter-test'

@@ -8,10 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class DeploymentMetrics {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

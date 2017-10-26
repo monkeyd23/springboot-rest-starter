@@ -32,3 +32,5 @@ gen/
 
 # Java class files
 *.class
+out/
+src/test/resources/
